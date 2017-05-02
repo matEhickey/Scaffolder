@@ -1,0 +1,37 @@
+<ProjectScreen@Screen>:
+    name: 'ProjectChoice'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 5
+
+        PanelProject:
+        PanelProject:
+
+        BoxLayout:
+            size_hint_y: 0.2
+            Button:
+                text: "Retour"
+                on_press:
+                    app.root.transition.direction = "right"
+                    app.root.current="ProjectChoice"
+            Button:
+                text: "ezxz"
+                disabled: True
+
+<PanelProject@BoxLayout>:
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgba: 0.8,0.8,0.8,0.1
+        Rectangle:
+            pos: self.pos[0]+10, self.pos[1]+10
+            size: self.size[0]-20, self.size[1]-20
+    Button:
+        opacity: 0.6
+        text: "Project ~"
+        on_press:
+            app.root.transition.direction = "left"
+            app.root.current="ScreenPackage"
+    Label:
+        text: "Description Projet\nWeb\n192.194.234.55"

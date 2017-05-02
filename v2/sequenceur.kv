@@ -1,0 +1,61 @@
+#: import ToggleButtons sequenceur
+
+<Sequenceur@Screen>:
+    name: "Sequenceur"
+    BoxLayout:
+        orientation: "vertical"
+        PanelItem:
+        BoxLayout:
+            size_hint_y: 0.2
+            Button:
+                text: "Retour"
+                on_press:
+                    app.root.transition.direction = "right"
+                    app.root.current="ScreenPackage"
+            Button:
+                text: "ezxz"
+                disabled: True
+
+<PanelItem@BoxLayout>:
+    padding: 20
+    spacing: 20
+    orientation: "vertical"
+
+    ItemEntity:
+        id: itemEntity
+
+    BoxLayout:
+        size_hint_y: 0.3
+        Button:
+            text: "<-"
+        Button:
+            text: "->"
+        Button:
+            text: "-"
+        Button:
+            text: "+"
+            on_press: root.addItem()
+
+    BoxLayout:
+        size_hint_y: 0.3
+        ToggleButtons:
+
+<ItemEntity@BoxLayout>:
+    orientation: "vertical"
+    TextInput:
+        id: itemName
+        hint_text: "Name"
+    BoxLayout:
+        Spinner:
+            id: itemType
+            text: "Type"
+            values: ("Text","Int","Float","Image","Lien")
+        Button:
+            text: "OK"
+            on_press: root.save()
+    TextInput:
+        id: itemDescr
+        hint_text: "Description"
+
+<ToggleButtons@BoxLayout>:
+    orientation: "vertical"

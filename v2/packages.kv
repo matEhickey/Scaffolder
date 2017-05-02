@@ -1,0 +1,49 @@
+<ScreenPackage@Screen>:
+    name: "ScreenPackage"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 5
+
+        Label:
+            text: "Description"
+
+        PanelPackage:
+        PanelPackage:
+        PanelPackage:
+
+        BoxLayout:
+            Button:
+                text: "Retour"
+                on_press:
+                    app.root.transition.direction = "right"
+                    app.root.current="ProjectChoice"
+            Button:
+                text: "ezxz"
+                disabled: True
+
+
+<PanelPackage@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.8,0.8,0.8,0.1
+        Rectangle:
+            pos: self.pos[0]+10, self.pos[1]+10
+            size: self.size[0]-20, self.size[1]-20
+    Button:
+        text: "Package ~"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Data"
+            on_press:
+                app.root.transition.direction = "left"
+                app.root.current="ScreenCrud"
+        Button:
+            text: "Struct"
+            on_press:
+                app.root.transition.direction = "left"
+                app.root.current="Sequenceur"
+    Label:
+        size_hint_x: 0.3
+        text: "3"

@@ -1,0 +1,66 @@
+<ScreenCrud@Screen>:
+    name: "ScreenCrud"
+    BoxLayout:
+        orientation: "vertical"
+        PanelCrud:
+        BoxLayout:
+            size_hint_y: 0.2
+            Button:
+                text: "Retour"
+                on_press:
+                    app.root.transition.direction = "right"
+                    app.root.current="ScreenPackage"
+            Button:
+                text: "ezxz"
+                disabled: True
+
+
+<PanelCrud@BoxLayout>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 20
+    CrudEntity:
+    CrudEntity:
+    CrudEntity:
+
+<CrudEntity@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.8,0.8,0.8,0.1
+        Rectangle:
+            pos: self.pos[0]+10, self.pos[1]+10
+            size: self.size[0]-20, self.size[1]-20
+    Button:
+        text: "CrudEntity"
+        on_press: app.root.current= "ScreenModifyCrud"
+
+
+<ScreenModifyCrud@Screen>:
+    name: "ScreenModifyCrud"
+    BoxLayout:
+        orientation: "vertical"
+
+        PanelModifyItem:
+
+        BoxLayout:
+            size_hint_y: 0.2
+            Button:
+                text: "Retour"
+                on_press:
+                    app.root.transition.direction = "right"
+                    app.root.current="ScreenCrud"
+            Button:
+                text: "ezxz"
+
+
+<PanelModifyItem@BoxLayout>:
+    Carousel:
+        ItemModify:
+        ItemModify:
+
+<ItemModify@BoxLayout>:
+    orientation: "vertical"
+    Label:
+        text: "Name"
+    TextInput:
+        hint_text: "Value"
